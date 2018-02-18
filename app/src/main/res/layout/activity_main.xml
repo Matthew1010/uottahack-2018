@@ -23,11 +23,24 @@
             android:layout_marginTop="78dp" />
 
         <Button
-            android:id="@+id/btn1"
-            android:layout_width="wrap_content"
+            android:id="@+id/scanbtn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_scanning"
-            />
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="71dp"
+            android:text="@string/btn_scanning" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/scanbtn"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="25sp"
+            android:padding="5dp"
+            android:gravity="center_horizontal"/>
 
     </RelativeLayout>
 
