@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uottawa.engineering.bda">
 
+
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
 
     <application
@@ -20,13 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:values="barcode"/>
-
-
-
-
-
+        <activity android:name=".Scan"></activity>
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode" />
 
     </application>
 
