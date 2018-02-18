@@ -7,15 +7,24 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.barcode.Barcode;
+import org.json.JSONObject;
+
+import uottawa.engineering.bda.objects.AuthToken;
+import uottawa.engineering.bda.objects.WaitTime;
+import uottawa.engineering.bda.tasks.GetTokenTask;
+import uottawa.engineering.bda.tasks.GetWaitTimeTask;
+import uottawa.engineering.bda.utils.Config;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GetTokenTask.GetTokenWatcher, GetWaitTimeTask.TaskWatcher {
+
     Button scanbtn;
     TextView result;
     public static final int REQUEST_CODE = 100;
@@ -26,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Config.getConfig(this);
 
         scanbtn = (Button) findViewById(R.id.scanbtn);
         result = (TextView) findViewById(R.id.result);
@@ -58,10 +68,6 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-
-
-
-
         /*
         View btn1 = (View) findViewById(R.id.btn1);
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +90,20 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    private void testJSON() {
+        GetTokenTask tokenTask = new GetTokenTask(this);
+        tokenTask.execute();
+    }
 
+    @Override
+    public void setTokenResponse() {
+        Log.i("MainActivity", "Token saved");
+        GetWaitTimeTask timeTask = new GetWaitTimeTask(this);
+        timeTask.execute(AuthToken.current());
+    }
 
-
-
+    @Override
+    public void onWaitTimeReceive(WaitTime time) {
+        Log.i("MainActivity", "Time: " + time);
+    }
+}

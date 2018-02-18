@@ -1,0 +1,14 @@
+{
+    "hosts": {
+        "main": {
+            "protocol": "https",
+            "sub_domain": "tanoshimu",
+            "domain": "akinyele.ca"
+        },
+        "api-main": {
+            "protocol": "https",
+            "sub_domain": "uottahack-2018",
+            "domain": "herokuapp.com"
+        }
+    }
+}
