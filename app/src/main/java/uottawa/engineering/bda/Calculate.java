@@ -19,6 +19,14 @@ public class Calculate {
      */
     public static String getTime (String ticketNo, String current, WaitTime averageTime){
         String time = "0:00";
+        int numberOfTickets = queueLength(ticketNo, current, averageTime);
+        int minutes = (averageTime.getMinute() * numberOfTickets)%60;
+        int heures =averageTime.getHour() * numberOfTickets + (averageTime.getMinute() * numberOfTickets)/60;
+        time = heures + ":" + minutes;
+        return time;
+    }
+
+    public static int queueLength (String ticketNo, String current, WaitTime averageTime){
         char[] ticketLetter = reverseCharArray(ticketNo.replaceAll("\\d", "").toCharArray());
         char[] currentLetter = reverseCharArray(current.replaceAll("\\d", "").toCharArray());
         // trouve les numéros d'extra entre les lettres
@@ -26,11 +34,7 @@ public class Calculate {
         // Ajout de 0 pour ne pas avoir un string vide et on divise par 10 ensuite.
         int ticketDigit = Integer.parseInt(ticketNo.replaceAll("\\D","") + "0") / 10 + letter;
         int currentDigit = Integer.parseInt(current.replaceAll("\\D","") + "0") / 10;
-        int numberOfTickets = ticketDigit - currentDigit;
-        int minutes = (averageTime.getMinute() * numberOfTickets)%60;
-        int heures =averageTime.getHour() * numberOfTickets + (averageTime.getMinute() * numberOfTickets)/60;
-        time = heures + ":" + minutes;
-        return time;
+        return ticketDigit - currentDigit;
     }
 
     public static char[] reverseCharArray(char[] c) {
