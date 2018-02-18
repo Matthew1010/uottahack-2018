@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Scan"></activity>
         <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode" />
 
     </application>
