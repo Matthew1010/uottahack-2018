@@ -1,0 +1,10 @@
+<resources>
+    <!-- <?xml version="1.0" encoding="utf-8"?> -->
+    <string name="btn_scanning">"Scannez le code QR </string>
+
+    <string name="txt_date">"Date</string>
+    <string name="txt_location">"Location</string>
+    <string name="txt_time">"Heure</string>
+
+
+</resources>

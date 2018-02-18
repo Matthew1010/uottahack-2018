@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">"BDA "</string>
+
+    <string name="btn_scanning">"Scan QR code </string>
+
+    <string name="txt_date">"Date</string>
+    <string name="txt_location">"Location</string>
+    <string name="txt_time">"Time</string>
+
+
 </resources>
