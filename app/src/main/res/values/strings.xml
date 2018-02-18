@@ -7,5 +7,8 @@
     <string name="txt_location">"Location</string>
     <string name="txt_time">"Time</string>
 
+    <string name="result_text_default">"Please Focus camera to QR code</string>
+
+
 
 </resources>
