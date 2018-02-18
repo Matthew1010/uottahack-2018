@@ -35,6 +35,12 @@ public final class APIMethods {
         return APIRequest.get(URL, "/api/tickets/wait-time", params);
     }
 
+    public static JSONObject addNewTicket(String token, String code) {
+        HashMap<String, String> params = createTokenParam(token);
+        params.put("ticket_code", code);
+        return APIRequest.post(URL, "/api/tickets/new", params);
+    }
+
     public static JSONObject getByID(int id, String what, String token) {
         HashMap<String, String> params = createTokenParam(token);
         params.put("id", String.valueOf(id));
@@ -46,5 +52,4 @@ public final class APIMethods {
         params.put("auth_token", token);
         return params;
     }
-
 }
