@@ -13,23 +13,32 @@
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="480px" />
+<TextView>
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/cameraPreview"
+        android:id="@id/txtResult"
+        android:layout_marginTop="20p"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+    </TextView>
 
 
-        <TextView>
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/cameraPreview"
-            android:id="@id/txtResult"
-            android:layout_marginTop="20p"
-            andoird:text="@string/result_text_default"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-        </TextView>
 -->
 
-
     <SurfaceView
-        android:id="@+id/surfaceView"
+        android:id="@+id/cameraPreview"
+        android:layout_width="292dp"
+        android:layout_height="208dp"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="83dp" />
+
+    <TextView
+        android:id="@+id/msgTxt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+
 </android.support.constraint.ConstraintLayout>
