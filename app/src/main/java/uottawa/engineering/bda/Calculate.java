@@ -3,6 +3,8 @@ package uottawa.engineering.bda;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import uottawa.engineering.bda.objects.WaitTime;
+
 /**
  * Created by Daviiiiid on 2018-02-18.
  * Just put all calculations here
@@ -25,8 +27,8 @@ public class Calculate {
         int ticketDigit = Integer.parseInt(ticketNo.replaceAll("\\D","") + "0") / 10 + letter;
         int currentDigit = Integer.parseInt(current.replaceAll("\\D","") + "0") / 10;
         int numberOfTickets = ticketDigit - currentDigit;
-        int minutes = (averageTime * numberOfTickets)%60;
-        int heures =averageTime * numberOfTickets + (averageTime * numberOfTickets)/60;
+        int minutes = (averageTime.getMinute() * numberOfTickets)%60;
+        int heures =averageTime.getHour() * numberOfTickets + (averageTime.getMinute() * numberOfTickets)/60;
         time = heures + ":" + minutes;
         return time;
     }
@@ -46,4 +48,6 @@ public class Calculate {
         }
         return num * multiplier;
     }
+
+    private Calculate () {}
 }
