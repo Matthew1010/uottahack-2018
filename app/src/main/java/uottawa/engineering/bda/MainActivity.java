@@ -2,11 +2,20 @@ package uottawa.engineering.bda;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 
+import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity {
+import uottawa.engineering.bda.objects.AuthToken;
+import uottawa.engineering.bda.objects.WaitTime;
+import uottawa.engineering.bda.tasks.GetTokenTask;
+import uottawa.engineering.bda.tasks.GetWaitTimeTask;
+import uottawa.engineering.bda.utils.Config;
+
+
+public class MainActivity extends AppCompatActivity implements GetTokenTask.GetTokenWatcher, GetWaitTimeTask.TaskWatcher {
 
 
 
@@ -14,8 +23,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Config.getConfig(this);
 
         View btn1 = (View) findViewById(R.id.btn1);
+        testJSON();
 
         btn1.setOnClickListener(new View.OnClickListener() {
 
@@ -29,8 +40,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void testJSON() {
+        GetTokenTask tokenTask = new GetTokenTask(this);
+        tokenTask.execute();
+    }
 
+    @Override
+    public void setTokenResponse() {
+        Log.i("MainActivity", "Token saved");
+        GetWaitTimeTask timeTask = new GetWaitTimeTask(this);
+        timeTask.execute(AuthToken.current());
+    }
 
-
-
+    @Override
+    public void onWaitTimeReceive(WaitTime time) {
+        Log.i("MainActivity", "Time: " + time);
+    }
 }
