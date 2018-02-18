@@ -6,6 +6,37 @@
     android:layout_height="match_parent"
     tools:context="uottawa.engineering.bda.Scan">
 
+    <activity
+        android:name="activity_scan"
+        android:label="@string/app_name">
+    </activity>
+
+
+<!--
+    <SurfaceView>
+        android:id="@id/cameraPreview"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="480px" />
+
+        <TextView>
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/cameraPreview"
+            android:id="@id/txtResult"
+            android:layout_marginTop="20p"
+            andoird:text="@string/result_text_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+        </TextView>
+
+
+
+
+    </SurfaceView>
+-->
+
+
     <RelativeLayout
         android:layout_width="368dp"
         android:layout_height="495dp"
